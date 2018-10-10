@@ -29,6 +29,8 @@
 
   <body id="page-top">
 
+
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
@@ -42,7 +44,7 @@
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Pricing</a>
+              <a class="nav-link js-scroll-trigger" href="#services" id="a-pricing">Pricing</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -128,6 +130,12 @@
       <div class="container text-center">
         <h2 class="mb-4">Download free resources crafted with insights from our customers and the industry experts!</h2>
         <a id="download_button" class="btn btn-light btn-xl sr-button" href="../img/header.jpg" download>Download Now!</a>
+        <script>
+          $("#download_button").click(function() {freshsales.trackEvent('Downloaded')})
+          document.getElementById("a-pricing").addEventListener("click", function() {
+            freshsales.trackEvent('Pricing section visited')
+          });
+        </script>
       </div>
     </section>
 
@@ -136,7 +144,7 @@
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading">Let's Get In Touch!</h2>
-            <hr class="my-4">s
+            <hr class="my-4">
             <p class="mb-5">If you’re ever in need of any ACME products, get in touch with us here. Because that’s what we’re here to do. 
 </p>
           </div>

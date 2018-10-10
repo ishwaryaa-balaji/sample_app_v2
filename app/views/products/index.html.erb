@@ -28,6 +28,21 @@
 
   <body id="page-top">
 
+<div class="container">
+    <% flash.each do |key, value| %>
+<% if value.present? %>
+        <%= content_tag :div, :class => "alert alert-success", :style => "color: #fff" do %>
+      <%= value %>
+      <%= link_to products_path, :class => "close", :"data-dismiss" => "alert", :"aria-label" => "Close" do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+
+  
+
     <div style="padding: 20px; background: #000; width: 100%;">
         <div class="text-right" style="color: #fff;">
           Signed in as <span style="color: #f05f40"> John </span>
@@ -63,7 +78,25 @@
        margin: auto;
        text-align: center;
      }
+
+     .alert.alert-success {
+       color: #fff;
+       position: fixed;
+       bottom: 30px;
+       right: 20px;
+       background: #48b761;
+       border: 0;
+       padding: 27px;
+       box-shadow: 2px 3px 5px #ccc;
+     }
+
+     .alert.alert-success .close, .alert.alert-success .close:hover {
+      color: #fff;
+      margin-left: 10px;
+      opacity: 1;
+     }
   </style>
+
     
 
     <!-- Bootstrap core JavaScript -->
