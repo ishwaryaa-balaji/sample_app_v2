@@ -14,20 +14,20 @@ class ProductsController < ApplicationController
 }
 
   FreshsalesAnalytics::identify(cookies[:user_email], sample_properties) 	 
- 	flash[:alert] = "Product added to cart successfully"
+ 	flash[:alert] = "Yay! Added to cart successfully"
   redirect_to products_path(alert: true)
   	FreshsalesAnalytics::trackEvent(cookies[:user_email], 'Product added to cart successfully')
   end
 
    def add_wish
   redirect_to products_path(alert: true)
- 	flash[:alert] = "Product added to wish list successfully"
+ 	flash[:alert] = "Sweet! Added to wish list"
   	FreshsalesAnalytics::trackEvent(cookies[:user_email], 'Product added to wish list successfully')
   end
 
   def checkout
   redirect_to products_path(alert: true)
- 	flash[:alert] = "Thanks for buying"
+ 	flash[:alert] = "Thanks! Your order has been placed"
   	FreshsalesAnalytics::trackEvent(cookies[:user_email], 'Checkout')
   end
 end
