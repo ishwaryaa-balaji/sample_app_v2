@@ -1,0 +1,14 @@
+version: '2'
+services:
+  sample-web:
+    build:
+      context: .
+      dockerfile: ./docker/sample-web/Dockerfile
+    environment:
+      - BOOTSTRAP=false
+      - RAILS_ENV=staging
+    command: ./docker/sample-web/run.sh
+    volumes:
+      - .:/sample
+    ports:
+      - "7000:7000"

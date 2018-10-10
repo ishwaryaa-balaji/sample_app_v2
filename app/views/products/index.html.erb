@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Creative - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/creative.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <div style="padding: 20px; background: #000; width: 100%;">
+        <div class="text-right" style="color: #fff;">
+          Signed in as <span style="color: #f05f40"> John </span>
+        </div>
+    </div>
+
+    <div style="margin: 40px 50px 0">
+      <div class="text-right">
+       <!--  <button class="btn btn-primary">Checkout</button> -->
+        <%= link_to "Checkout", { :controller => "products", :action => "checkout"}, class: "pull-right"%>
+      </div>
+      <ul style="list-style: none; display: flex; justify-content: flex-start; flex-wrap: wrap; margin: -40px; padding: 40px;">
+        <% @products.each do |product| %> 
+        <li style="height: 350px;border: 1px solid #ddd;padding: 30px;display: flex;flex-direction: column;justify-content: space-between;align-items: center; width: 350px; margin: 40px;">
+          <%= link_to image_tag(product.image),
+                product_path(product.id), :class => 'text-center product-image-aka' %>
+                <div class="text-center">
+                         <div><%= product.product_name %> </div>
+                        <div> $ <%= product.product_rate %></div></div>
+          <div class="btn btn-group">
+            <%= link_to "Add to cart", { :id => product.id, :controller => "products", :action => "add_item"}, :class => "btn btn-primary" , :style => "text-transform: none; font-weight: 400;"%>
+             <%= link_to "Add to wish list", { :id => product.id,:controller => "products", :action => "add_wish"}, :class => "btn btn-primary", :style => "border-left: 1px solid #fff !important; text-transform: none; font-weight: 400;" %>
+
+          </div>
+        </li>
+        <% end %> 
+      </ul>
+    </div>
+
+    <style>
+     .product-image-aka img {
+       height: 120px;
+       margin: auto;
+       text-align: center;
+     }
+  </style>
+    
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="app/assests/javascripts/creative.min.js"></script>
+
+  </body>
+
+</html>
