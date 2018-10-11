@@ -26,9 +26,13 @@ class ProductsController < ApplicationController
   end
 
   def checkout
-  redirect_to products_path(alert: true)
+     properties = {
+    'Checkout' => true
+  } 
  	flash[:alert] = "Thanks! Your order has been placed"
-  	FreshsalesAnalytics::trackEvent(cookies[:user_email], 'Checkout')
+  redirect_to products_path(alert: true)
+  FreshsalesAnalytics::trackEvent(cookies[:user_email], 'Checkout')
+  FreshsalesAnalytics::identify(cookies[:user_email], properties)
   end
 end
 
