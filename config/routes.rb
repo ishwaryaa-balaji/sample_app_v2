@@ -10,7 +10,7 @@ MarketingApp::Application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   get '/logout',  to: 'sessions#destroy'
-root to: 'static_pages#home'
+root to: 'users#new'
   resources :users
   resources :sessions
   resources :import
