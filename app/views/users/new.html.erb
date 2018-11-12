@@ -3,7 +3,9 @@
 
   <head>
 
-<script> function createFcn(nm){(window.freshsales)[nm]=function(){(window.freshsales).push([nm].concat(Array.prototype.slice.call(arguments,0)))}; } (function(url,appToken,formCapture){window.freshsales=window.freshsales||[];if(window.freshsales.length==0){list='init identify trackPageView trackEvent set'.split(' ');for(var i=0;i<list.length;i++){var nm=list[i];createFcn(nm);}var t=document.createElement('script');t.async=1;t.src='https://d952cmcgwqsjf.cloudfront.net/assets/analytics.js';var ft=document.getElementsByTagName('script')[0];ft.parentNode.insertBefore(t,ft);freshsales.init('https://acme.freshsales.io','05b9884f17b4e4fc20b0e94cff864d15f73d43c356cdda6fb070401ee8012d91',true);}})();</script>
+    <script src="https://wchat.freshchat.com/js/widget.js"></script>
+
+<script> function createFcn(nm){(window.freshsales)[nm]=function(){(window.freshsales).push([nm].concat(Array.prototype.slice.call(arguments,0)))}; } (function(url,appToken,formCapture){window.freshsales=window.freshsales||[];if(window.freshsales.length==0){list='init identify trackPageView trackEvent set'.split(' ');for(var i=0;i<list.length;i++){var nm=list[i];createFcn(nm);}var t=document.createElement('script');t.async=1;t.src='https://d952cmcgwqsjf.cloudfront.net/assets/analytics.js';var ft=document.getElementsByTagName('script')[0];ft.parentNode.insertBefore(t,ft);freshsales.init('https://webinar.freshsales.io','ab3b1e545ca09ab1d652864d411389e50b272ba9439fd31971afed65c7c94724',true);}})();</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -28,6 +30,13 @@
   </head>
 
   <body id="page-top">
+
+    <script>
+  window.fcWidget.init({
+    token: "358f71ee-47cc-4590-ab81-6102d1cf804e",
+    host: "https://wchat.freshchat.com"
+  });
+</script>
 
 
 
@@ -163,11 +172,13 @@
         </div>
         <%= form_for(@user) do |f| %>
           <div class="row" style="margin-top: 60px;">
-            <div class="col-lg-4 ml-auto text-center" style="align-self: center;">
+            <div class="col-lg-4 text-center" style="align-self: center; margin: auto;">
+              <%= f.text_field :name, class: 'form-control email-style', placeholder: "Enter your name"%><br>
+              <%= f.text_field :company , class: 'form-control email-style', placeholder: "Enter your company name"%><br>
               <%= f.email_field :email , class: 'form-control email-style', placeholder: "Enter your email"%><br>
-            </div>
-            <div class="mr-auto text-center">
-              <%= f.submit "Sign up!", class: "btn btn-primary signup-button-style"%>
+              <div class="mr-auto text-center">
+                <%= f.submit "Sign up!", class: "btn btn-primary signup-button-style"%>
+              </div>
             </div>
           </div>
         <% end %>
